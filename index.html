@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissors</title>
+    <link rel="stylesheet" href="test.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double&family=VT323&family=Wallpoet&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Rock-Paper-Scissors</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="gridBox heading">
+                <h1>Choose your ammo:</h1>
+            </div>
+            <div class="gridBox buttons">
+                <button class="button choices" data-value="Rock"><img src="rock.png" alt="rock icon image" class="icons"></button>
+                <button class="button choices" data-value="Paper"><img src="paper.png" alt="paper icon image" class="icons"></button>
+                <button class="button choices" data-value="Scissors"><img src="scissors.png" alt="scissor icon image" class="icons"></button>
+            </div>
+            <div class="gridBox format">
+                <button class="button formats" data-number="3">
+                    <p>Best of 3</p>
+                    <div class="onOffBtns">
+                        <div class="onOff"></div>
+                    </div>
+                </button>
+                <button class="button formats" data-number="5">
+                    <p>Best of 5</p>
+                    <div class="onOffBtns">
+                        <div class="onOff"></div>
+                    </div>
+                    </button>
+                <button class="button formats" data-number="7">
+                    <p>Best of 7</p>
+                    <div class="onOffBtns">
+                        <div class="onOff"></div>
+                    </div>
+                </button>
+                <button class="button formats" data-number="999">
+                    <p>Infinite</p>
+                    <div class="onOffBtns">
+                        <div class="onOff"></div>
+                    </div>
+                </button>
+            </div>
+            <div class="gridBox scoreBoard">
+                <div class="scoreBoard hands">
+                    <div class="hand">
+                        <p>Player:</p>
+                        <div class="imgWrapper"> 
+                            <img class="questionMark" src="question-mark.png" alt="question mark image">
+                        </div>
+                    </div>
+                    <h3>VS</h3>
+                    <div class="hand">
+                        <p>Computer:</p>
+                        <div class="imgWrapper">
+                            <img class="questionMark" src="question-mark.png" alt="question mark image">
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="scoreBoard round">
+                    <h2></h2>
+                </div>
+                <div class="scoreBoard playerScore">
+                    <p id="playerScore"></p>
+                    <p class="winCount"></p>
+                    <p class="lossCount"></p>
+                </div>
+                <div class="scoreBoard computerScore">
+                    <p id="computerScore"></p>
+                    <p class="winCount"></p>
+                    <p class="lossCount"></p>
+                </div>
+            </div>
+            <div class="finalScore">
+                <p class="finalScoreDisplay"></p>
+                <button class="button newGame">New Game</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <hr>
+        <p>*developed by F.Yian 2026</p>
+        <hr>
+    </footer>
+    <script src="index.js"></script>
+</body>
