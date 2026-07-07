@@ -48,9 +48,9 @@ function RockPaperScissors(){
 
     function getComputerChoice(){
         const randomNum = Math.floor(Math.random() * 3);
-        if(randomNum === 0) computerChoice = "Rock";
-        else if(randomNum === 1) computerChoice = "Paper";
-        else if(randomNum === 2) computerChoice = "Scissors";
+        if(randomNum === 0) computerChoice = "rock";
+        else if(randomNum === 1) computerChoice = "paper";
+        else if(randomNum === 2) computerChoice = "scissors";
         else{
             console.error("Unexpected outcome at getComputerChoice()");
             throw new Error("Error at getComputerChoice");
@@ -64,7 +64,7 @@ function RockPaperScissors(){
     function determiner(pHand, cHand){
         if(pHand === cHand) return 0;
 
-        const wins = {Rock: "Scissors", Paper: "Rock", Scissors: "Paper"};
+        const wins = {rock: "scissors", paper: "rock", scissors: "paper"};
         
         return wins[pHand] === cHand? 2 : 1;
     }
@@ -99,15 +99,15 @@ function RockPaperScissors(){
         let image = document.createElement("img");
         image.classList.add("scoreBoardBtns")
         switch(choice){
-            case "Rock":
+            case "rock":
                 image.src = "rock.png";
                 image.alt = "rock icon image";
                 break;
-            case "Paper":
+            case "paper":
                 image.src = "paper.png";
                 image.alt = "paper icon image";
                 break;
-            case "Scissors":
+            case "scissors":
                 image.src = "scissors.png";
                 image.alt = "scissors icon image";
                 break;
