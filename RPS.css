@@ -1,0 +1,352 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color:  rgb(54,54,54);
+}
+
+img{
+    min-width: 0;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+header{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-family: "Bitcount Grid Double", system-ui;
+    text-align: center;
+    font-size: clamp(0.6rem, 1rem + 2vw, 3rem);
+
+}
+h1{
+    margin: 0;
+}
+h2{
+    color: #000000;
+    margin: 0;
+}
+h2::before{
+    content: "Round:";
+}
+
+
+main{
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    margin: 0;
+}
+
+.gridBox.heading{
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+}
+
+.gridBox.buttons{
+    grid-area: b;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 150px));
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 10px;
+}
+
+/*.gridBox.format{
+    grid-area: c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    max-height: 90vh;
+    padding: 10px;
+}*/
+
+
+.gridBox.format{
+    padding: 10px;
+    grid-area: c;
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr);
+    grid-auto-rows: minmax(50px, min-content);
+    align-content: space-evenly;
+    justify-items: center;
+}
+
+
+.scoreBoard.hands{
+    grid-area: v;
+    display: flex;
+}
+
+.hand{
+    min-width: 120px;
+    width: 100%;
+    padding: 10px;
+    font-family: "Bitcount Grid Double", system-ui;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(0.4rem, 1rem + 1vw, 2.5rem);
+}
+
+
+.imgWrapper{
+    border: 6px solid black;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    width: 80%;
+    max-width: 200px;
+    min-width: 80px;
+}
+
+.questionMark.inactive{
+    display: none;
+}
+
+.scoreBoard.round{
+    grid-area: x;
+    color: rgba(0, 0, 0, 0.773);
+    font-family: "Bitcount Grid Double", system-ui;
+    font-size: clamp(0.5rem, 1rem + 1vw, 3rem);
+    border-bottom: 8px solid black;
+    text-align: center;
+
+}
+
+.scoreBoard.playerScore{
+    grid-area: y;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Wallpoet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(1rem, 0.7rem + 1vw, 3rem); 
+    padding: 10px;
+}
+
+#playerScore::before{
+    content: "Player Score: ";
+}
+
+.winCount::before{
+    content: "wins: ";
+}
+
+.lossCount::before{
+    content: "losses: ";
+}
+
+.scoreBoard.computerScore{
+    grid-area: z;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Wallpoet", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: clamp(0.5rem, 0.7rem + 1vw, 3rem); 
+    padding: 10px;
+}
+
+#computerScore::before{
+    content: "Computer Score: ";
+}
+
+.gridBox.scoreBoard{
+    grid-area: d;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    grid-template-areas:
+    "x x"
+    "v v"
+    "y z";
+    justify-content: center;
+    padding: 10px;
+}
+
+.container{
+    position: relative;
+    border: 8px dotted grey;
+    border-radius: 5%;
+    width: clamp(500px, 70vw, 1200px);
+    max-height: 95vh;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 
+    "a c"
+    "d c"
+    "b c";
+}
+
+
+
+.button.formats{
+    width: 70%;
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(214, 201, 201);
+    border: 5px solid black;
+    border-radius: 10%;
+    transition: background-color 0.5s;
+    font-family: "Wallpoet", sans-serif;
+    font-size: clamp(0.7rem, 0.5rem + 1vw, 3rem); 
+}
+
+.button.formats.active{
+    background-color: green;
+}
+.button.formats:hover {
+    background-color: rgb(118, 231, 118);
+}
+
+.button.choices{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    background-color: rgb(77, 77, 247);
+    border: none;
+}
+
+.icons{
+    transition: transform 1s;
+}
+.icons:hover {
+    transform: rotateZ(-90deg);
+}
+
+.finalScore{
+    position: absolute;
+    min-width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -500%);
+    border: 10px solid black;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    font-family: "VT323", monospace;
+    font-weight: bold;
+    font-size: clamp(2rem, 2.5rem + 1vw, 4rem);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1.5s,
+                transform 1.5s;
+}
+.finalScore.active{
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.gridBox{
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+.gridBox.inactive{
+    opacity: 0; /*opacity is compatible with animations and responds to pointer events, while visibility also opccupies space but does not respond to pointer events*/
+    pointer-events: none;
+}
+
+
+.onOffBtns{
+    width: clamp(20px, 90%, 100px);
+    max-height: 30px;
+    aspect-ratio: 3/1;
+    border: 4px solid black;
+    border-radius: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    transition: background-color 1s;
+    padding: 2px;
+}
+
+.onOffBtns.active{
+    background-color: green;
+}
+
+.onOff{
+    background-color: black;
+    width: 25%;
+    max-height: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    transform: translateX(0);
+    transition: transform 1s;
+}
+
+.onOff.active{
+    background-color: white;
+    transform: translateX(290%);
+}
+
+
+.hoverImage{
+    opacity: 0;
+    position: absolute;
+    object-fit: contain;
+    top: 50%;
+    left: 50%;
+    transform: transform(-50%, -50%);
+    animation: fadeOut 2s;
+    pointer-events: none;
+}
+@keyframes fadeOut{
+    0% { opacity: 0;
+         transform: translate(-50%, -50%); 
+        }
+    50% { opacity: 0.6; 
+          transform: translate(-50%, -80%);
+        }
+    100% { opacity: 0%; transform: translate(-50%, -80%);
+        }
+}
+
+@media (max-width: 500px){
+
+    .gridBox.format{
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        justify-content: space-between;
+    }
+
+    .button.formats{
+        border: 0.5px solid black;
+    }
+
+    .gridBox.buttons{
+        grid-template-columns: repeat(3, minmax(60px, 120px));
+    }
+    .container{
+        grid-template-columns: minmax(300px, 1fr);
+        grid-template-areas: 
+        "a"
+        "c"
+        "d"
+        "b";
+    }
+}
