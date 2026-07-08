@@ -83,6 +83,7 @@ p{
     grid-auto-rows: minmax(50px, min-content);
     align-content: space-evenly;
     justify-items: center;
+    gap: 1.5rem;
 }
 
 
@@ -336,7 +337,6 @@ p{
     .button.formats{
         border: 0.2px solid black;
         justify-content: space-between;
-        gap: 1.5rem;
     }
 
     .gridBox.buttons{
