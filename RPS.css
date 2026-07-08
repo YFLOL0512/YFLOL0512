@@ -357,7 +357,7 @@ p{
         max-height: 20px;
     }
     .onOff{
-        width: 28%;
+        width: 27%;
     }
     .onOff.active{
         transform: translateX(250%);
