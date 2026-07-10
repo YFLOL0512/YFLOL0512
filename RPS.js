@@ -85,8 +85,7 @@ function RockPaperScissors(){
         formatButtons[0].classList.add("active");
         onOffBtns[0].classList.add("active");
         onOff[0].classList.add("active");
-        document.querySelector(".scoreBoardBtns")?.remove();
-        document.querySelector(".scoreBoardBtns")?.remove();
+        document.querySelectorAll(".scoreBoardBtns")?.forEach(btn => btn.remove());
         defaultIcons.forEach(element => element.classList.remove("inactive"));
         updateDisplay("", computerScoreDisplay);
         updateDisplay("", playerScoreDisplay);
